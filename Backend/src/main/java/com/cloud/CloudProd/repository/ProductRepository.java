@@ -21,8 +21,9 @@ public class ProductRepository {
         this.productTable = enhancedClient.table("Products", TableSchema.fromBean(Products.class));
     }
 
-    public void save(Products product) {
-        productTable.putItem(product);
+    public Products save(Products products) {
+        productTable.putItem(products);
+        return products;
     }
 
     public Optional<Products> findById(String id) {
